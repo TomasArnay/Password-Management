@@ -7,6 +7,7 @@ import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println("Este es un mensaje nuevo");
         String url = "jdbc:mysql://localhost:3306/gestion_contrasenias";
         String password = "riverplate20010304";
         String user = "root";
