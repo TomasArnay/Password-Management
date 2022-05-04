@@ -93,8 +93,8 @@ public class LoginPanel implements ActionListener{
             frame.setVisible(false);
 
             Main start = new Main();
-            String myPassword = "DiegoElMasGrande";
-            start.connection(comparationPassword(loginPassword.getText(), myPassword));
+            String loginPass = "Alfredo1959";
+            start.connection(comparationPassword(loginPassword.getText(), loginPass));
         }
     }
 
