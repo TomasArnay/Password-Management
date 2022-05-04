@@ -131,7 +131,6 @@ public class Interface implements ActionListener{
         int width = resolution.width;
         int height = resolution.height;
 
-
         frame.setBounds(width / 2 - 300, height / 2 - 150, x, y);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);

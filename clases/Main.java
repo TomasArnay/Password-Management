@@ -7,15 +7,28 @@ import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Este es un mensaje nuevo");
-        String url = "jdbc:mysql://localhost:3306/gestion_contrasenias";
-        String password = "riverplate20010304";
-        String user = "root";
-        MyConnection c = new MyConnection(user, password, url);
-        start(1, 0);    //Always start in english with background image
+        start();
     }
 
-    public static void start(int language, int backgroundColor) {
+    public static void start(){
+        LoginPanel login = new LoginPanel();
+        login.startEnglishBackgroundStyle(image, backgroundColorButton, foregroundColor, margin);
+    }
+
+    //Recibe un entero, 0 si es falso 1 si es verdadero
+    public void connection(int numberComparation){
+        if(numberComparation == 1){
+            String url = "jdbc:mysql://localhost:3306/gestion_contrasenias";
+            String password = "riverplate20010304";
+            String user = "root";
+            MyConnection c = new MyConnection(user, password, url);
+            startInterface(1, 0);    //Always start in english with background image
+        }else{
+            start();
+        }
+    }
+
+    public static void startInterface(int language, int backgroundColor) {
         Interface i = new Interface(backgroundColorButton, foregroundColor, margin);
         if (language == 0) {
             switch (backgroundColor){

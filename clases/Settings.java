@@ -135,8 +135,7 @@ public class Settings implements ActionListener {
                     selectedColor = 2;
                 }
                 frame.setVisible(false);
-                Main main = new Main();
-                main.start(selectedLanguage, selectedColor);
+                Main.startInterface(selectedLanguage, selectedColor);
             }
 
         }
