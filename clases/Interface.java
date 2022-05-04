@@ -298,8 +298,8 @@ public class Interface implements ActionListener{
     private String titleColumnName;     //Nombre de la columna de la tabla
     private String titleColumnAccount;      //Nombre de la columna de la tabla
     private String titleColumnPassword;     //Nombre de la columna de la tabla
-    private ImageIcon imageSettings = new ImageIcon("src/Images/settings.png");
-    private ImageIcon imageSettingsPressed = new ImageIcon("src/Images/settingsPressed.png");
+    private ImageIcon imageSettings = new ImageIcon(getClass().getResource("/Images/settings.png"));
+    private ImageIcon imageSettingsPressed = new ImageIcon(getClass().getResource("/Images/settingsPressed.png"));
     private ImageIcon imageRefresh = new ImageIcon(getClass().getResource("/Images/refresh.png"));
     private ImageIcon imageRefreshPressed = new ImageIcon(getClass().getResource("/Images/refreshPressed.png"));
     private boolean flagBackground;     //Si es verdadero es un fondo con estilo, si es falso es un fondo solido
