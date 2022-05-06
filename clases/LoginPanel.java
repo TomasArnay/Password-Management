@@ -90,12 +90,19 @@ public class LoginPanel implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("Accept")){
-            frame.setVisible(false);
-
-            Main start = new Main();
             String loginPass = "Alfredo1959";
+            frame.setVisible(false);
+            Main start = new Main();
+            if (comparationPassword(loginPassword.getText(), loginPass) == 0) {
+                JOptionPane.showMessageDialog(frame,
+                        "The record has been update successfully",
+                        "Error", JOptionPane.INFORMATION_MESSAGE);
+
+            }
             start.connection(comparationPassword(loginPassword.getText(), loginPass));
-        }//Escribir el codigo cuando la contrasenia no coincide
+        }
+
+        //Escribir el codigo cuando la contrasenia no coincide
     }
 
     //Variables
