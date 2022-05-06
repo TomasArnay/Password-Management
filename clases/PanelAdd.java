@@ -255,7 +255,7 @@ public class PanelAdd implements ActionListener {
     private Color foregroundColor;
     private Color backgroundColorTF;
     private Color backgroundColor;
-    private ImageIcon imageGenerator = new ImageIcon("src/Images/generator.png");
-    private ImageIcon imageGeneratorPressed = new ImageIcon("src/Images/generatorPressed.png");
+    private ImageIcon imageGenerator = new ImageIcon(getClass().getResource("/Images/generator.png"));
+    private ImageIcon imageGeneratorPressed = new ImageIcon(getClass().getResource("/Images/generatorPressed.png"));
     private boolean flagLanguage;       //Si es verdadero es ingles, si es falso es espanol
 }
