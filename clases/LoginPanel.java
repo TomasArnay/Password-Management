@@ -95,7 +95,7 @@ public class LoginPanel implements ActionListener{
             Main start = new Main();
             String loginPass = "Alfredo1959";
             start.connection(comparationPassword(loginPassword.getText(), loginPass));
-        }
+        }//Escribir el codigo cuando la contrasenia no coincide
     }
 
     //Variables
@@ -107,5 +107,4 @@ public class LoginPanel implements ActionListener{
     private Color backgroundTF;
     private Color foregroundColor;
     private Border margin;
-
 }

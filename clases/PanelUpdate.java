@@ -4,7 +4,6 @@ import com.company.BackgroundPanel;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
@@ -267,11 +266,6 @@ public class PanelUpdate implements ActionListener {
                 }
             }
         }
-    }
-
-    //Convert color
-    private int hex(String color_hex) {
-        return Integer.parseInt(color_hex, 16);
     }
 
     //Variables

@@ -164,6 +164,7 @@ public class Interface implements ActionListener{
                     Settings s = new Settings(backgroundColor, backgroundColorButton, foregroundColor, margin);
                 }
                 frame.setVisible(false);
+                //Resolver bug cuando se cierra la ventana de settings
             }
         });
 
@@ -269,11 +270,6 @@ public class Interface implements ActionListener{
                 }
             }
         }
-    }
-
-    //Convert color
-    private int hex(String color_hex) {
-        return Integer.parseInt(color_hex, 16);
     }
 
     //Variables

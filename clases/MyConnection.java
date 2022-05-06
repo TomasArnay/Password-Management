@@ -3,14 +3,6 @@ package clases;
 import java.sql.*;
 
 public class MyConnection {
-    private static Connection conn;
-    private static final String driver = "com.mysql.cj.jdbc.Driver";
-    private String user;
-    private String password;
-    private String url;
-    private ResultSet rs; //Contenedor
-    private String error;
-
     public MyConnection(String user, String password, String url){
         conn = null;
         this.user = user;
@@ -54,4 +46,13 @@ public class MyConnection {
             System.out.println("Conexion finalizada");
         }
     }
+
+    //variables
+    private static Connection conn;
+    private static final String driver = "com.mysql.cj.jdbc.Driver";
+    private String user;
+    private String password;
+    private String url;
+    private ResultSet rs; //Contenedor
+    private String error;
 }

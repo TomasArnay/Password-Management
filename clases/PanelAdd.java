@@ -4,18 +4,14 @@ import com.company.BackgroundPanel;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 public class PanelAdd implements ActionListener {
 
     public void startSpanishBackgroundStyle(ImageIcon backgroundImage, Color backgroundColorTF, Color foregroundColor, Border margin) {
-        flagLanguage = true;
         this.backgroundColorTF = backgroundColorTF;
         this.foregroundColor = foregroundColor;
         this.margin = margin;
@@ -33,7 +29,6 @@ public class PanelAdd implements ActionListener {
     }
 
     public void startSpanish(Color backgroundColor, Color backgroundColorTF, Color foregroundColor, Border margin) {
-        flagLanguage = true;
         this.backgroundColor = backgroundColor;
         this.backgroundColorTF = backgroundColorTF;
         this.foregroundColor = foregroundColor;
@@ -52,7 +47,6 @@ public class PanelAdd implements ActionListener {
     }
 
     public void startEnglishBackgroundStyle(ImageIcon backgroundImage, Color backgroundColorTF, Color foregroundColor, Border margin) {
-        flagLanguage = false;
         this.backgroundColorTF = backgroundColorTF;
         this.foregroundColor = foregroundColor;
         this.margin = margin;
@@ -70,7 +64,6 @@ public class PanelAdd implements ActionListener {
     }
 
     public void startEnglish(Color backgroundColor, Color backgroundColorTF, Color foregroundColor, Border margin) {
-        flagLanguage = false;
         this.backgroundColor = backgroundColor;
         this.backgroundColorTF = backgroundColorTF;
         this.foregroundColor = foregroundColor;
@@ -232,11 +225,6 @@ public class PanelAdd implements ActionListener {
         return true;
     }
 
-    //Convert color
-    private int hex(String color_hex) {
-        return Integer.parseInt(color_hex, 16);
-    }
-
     //Variables
     private JFrame frame;
     private BackgroundPanel panel;
@@ -257,5 +245,4 @@ public class PanelAdd implements ActionListener {
     private Color backgroundColor;
     private ImageIcon imageGenerator = new ImageIcon(getClass().getResource("/Images/generator.png"));
     private ImageIcon imageGeneratorPressed = new ImageIcon(getClass().getResource("/Images/generatorPressed.png"));
-    private boolean flagLanguage;       //Si es verdadero es ingles, si es falso es espanol
 }

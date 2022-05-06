@@ -177,11 +177,6 @@ public class PanelDelete implements ActionListener {
         return true;
     }
 
-    //Convert color
-    private int hex(String color_hex) {
-        return Integer.parseInt(color_hex, 16);
-    }
-
     //Variables
     private JFrame frame;
     private BackgroundPanel panel;

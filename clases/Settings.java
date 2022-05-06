@@ -152,7 +152,6 @@ public class Settings implements ActionListener {
     private JComboBox<String> comboBoxColor;
     private JComboBox<String> comboBoxlanguage;
     private JButton confirmChanges;
-    private String selectedBackgroundStyle;
     private int selectedColor = 0;
     private int selectedLanguage = 0;
     private JLabel explanationLanguage;
