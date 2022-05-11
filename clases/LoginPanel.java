@@ -95,8 +95,8 @@ public class LoginPanel implements ActionListener{
             Main start = new Main();
             if (comparationPassword(loginPassword.getText(), loginPass) == 0) {
                 JOptionPane.showMessageDialog(frame,
-                        "The record has been update successfully",
-                        "Error", JOptionPane.INFORMATION_MESSAGE);
+                        "Incorrect password",
+                        "Error", JOptionPane.ERROR_MESSAGE);
 
             }
             start.connection(comparationPassword(loginPassword.getText(), loginPass));
