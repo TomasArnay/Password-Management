@@ -1,9 +1,10 @@
 package clases;
 
+import javax.swing.*;
 import java.sql.*;
 
 public class MyConnection {
-    public MyConnection(String user, String password, String url){
+    public MyConnection(String user, String password, String url) throws SQLException{
         conn = null;
         this.user = user;
         this.password = password;
@@ -15,10 +16,7 @@ public class MyConnection {
             if (conn != null){
                 System.out.println("Conexión exitosa");
             }
-        }catch (SQLException exception){
-            error = exception.getMessage();
-            exception.printStackTrace();
-            System.out.println("Conexión fallida");
+        }catch (SQLException ignored){
         }
     }
 

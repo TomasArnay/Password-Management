@@ -7,6 +7,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class LoginPanel implements ActionListener{
 
@@ -99,10 +100,15 @@ public class LoginPanel implements ActionListener{
                         "Error", JOptionPane.ERROR_MESSAGE);
 
             }
-            start.connection(comparationPassword(loginPassword.getText(), loginPass));
+            try{
+                start.connection(comparationPassword(loginPassword.getText(), loginPass));
+            }catch (SQLException exception){
+                System.out.println("Conexión fallida");
+                JOptionPane.showMessageDialog(frame,
+                        "Failed connection. Open the app again",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
-
-        //Escribir el codigo cuando la contrasenia no coincide
     }
 
     //Variables
