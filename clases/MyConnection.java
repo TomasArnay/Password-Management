@@ -10,14 +10,13 @@ public class MyConnection {
         this.password = password;
         this.url = url;
 
-        try{
+
             conn = DriverManager.getConnection(url, user, password);
 
             if (conn != null){
                 System.out.println("Conexión exitosa");
             }
-        }catch (SQLException ignored){
-        }
+
     }
 
     public MyConnection(){ };

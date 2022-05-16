@@ -100,13 +100,17 @@ public class LoginPanel implements ActionListener{
                         "Error", JOptionPane.ERROR_MESSAGE);
 
             }
-            try{
+
+            try {
                 start.connection(comparationPassword(loginPassword.getText(), loginPass));
             }catch (SQLException exception){
-                System.out.println("Conexión fallida");
+                //error = exception.getMessage();
                 JOptionPane.showMessageDialog(frame,
-                        "Failed connection. Open the app again",
+                        "Database connection error",
                         "Error", JOptionPane.ERROR_MESSAGE);
+                exception.printStackTrace();
+                System.out.println("Conexión fallida");
+                System.exit(0);
             }
         }
     }

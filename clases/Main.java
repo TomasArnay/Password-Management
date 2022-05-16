@@ -19,15 +19,10 @@ public class Main {
     //Recibe un entero, 0 si es falso 1 si es verdadero
     public void connection(int numberComparation) throws SQLException{
         if(numberComparation == 1){
-            String url = "jd bc:mysql://localhost:3306/gestion_contrasenias";
+            String url = "jdbc:mysql://localhost:3306/gestion_contrasenias";    //Falla
             String password = "riverplate20010304";
             String user = "root";
-            try {
-
-                MyConnection c = new MyConnection(user, password, url);
-
-            }catch (SQLException ignored){
-            }
+            MyConnection c = new MyConnection(user, password, url);
             startInterface(1, 0);    //Always start in english with background image
         }else{
             start();
