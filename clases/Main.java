@@ -19,11 +19,7 @@ public class Main {
     //Recibe un entero, 0 si es falso 1 si es verdadero
     public void connection(int numberComparation) throws SQLException{
         if(numberComparation == 1){
-<<<<<<< HEAD
-            String url = "jdb c:mysql://localhost:3306/gestion_contrasenias";    //Falla
-=======
             String url = "jdbc:mysql://localhost:3306/gestion_contrasenias";    //Falla
->>>>>>> erroConnectionToDataBase
             String password = "riverplate20010304";
             String user = "root";
             MyConnection c = new MyConnection(user, password, url);
