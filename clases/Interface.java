@@ -100,6 +100,8 @@ public class Interface implements ActionListener{
         setFrame();
     }
 
+    //Metodo que cambia el tamanio de una imagen
+
     //Setea el color del panel y agrega todo al frame
     private void addComponentsPanelSolid(Color backgroundColor){
         jPanel.setBackground(backgroundColor);
@@ -169,8 +171,8 @@ public class Interface implements ActionListener{
         });
 
         //Refresh button
-        refresh.setIcon(imageRefresh);
-        refresh.setPressedIcon(imageRefreshPressed);
+        refresh.setIcon(imageRefreshPressed);
+        refresh.setPressedIcon(icon);
         refresh.setFocusable(false);
         refresh.setBorder(margin);
         refresh.addActionListener(new ActionListener() {
@@ -187,7 +189,7 @@ public class Interface implements ActionListener{
         updatePass.setBounds(450, 120, 200, 30);
         deletePass.setBounds(450, 180, 200, 30);
 
-        refresh.setBounds(590, 5, 30, 40);
+        refresh.setBounds(590, 5, 40, 40);
         settings.setBounds(630, 0, 50, 50);
     }
 
@@ -296,8 +298,12 @@ public class Interface implements ActionListener{
     private String titleColumnPassword;     //Nombre de la columna de la tabla
     private ImageIcon imageSettings = new ImageIcon(getClass().getResource("/Images/settings.png"));
     private ImageIcon imageSettingsPressed = new ImageIcon(getClass().getResource("/Images/settingsPressed.png"));
-    private ImageIcon imageRefresh = new ImageIcon(getClass().getResource("/Images/refresh.png"));
-    private ImageIcon imageRefreshPressed = new ImageIcon(getClass().getResource("/Images/refreshPressed.png"));
+    private ImageIcon imageRefreshPressed = new ImageIcon(getClass().getResource("/Images/reload_pressed.png"));
+
+    private ImageIcon imageRefresh = new ImageIcon(getClass().getResource("/Images/reload.png"));
+    Image scaleImage = imageRefresh.getImage().getScaledInstance(40, 40,Image.SCALE_DEFAULT);   //Convierto la imagen a la escala que tiene el boton
+    ImageIcon icon = new ImageIcon(scaleImage); //Convierto a Image a tipo ImageIcon para que lo tome el boton
+
     private boolean flagBackground;     //Si es verdadero es un fondo con estilo, si es falso es un fondo solido
     private boolean flagLanguage;   //Si es verdadero es ingles, si es falso es español
 }

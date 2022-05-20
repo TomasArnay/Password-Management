@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class Main {
@@ -18,6 +19,7 @@ public class Main {
 
     //Recibe un entero, 0 si es falso 1 si es verdadero
     public void connection(int numberComparation) throws SQLException{
+
         if(numberComparation == 1){
             String url = "jdbc:mysql://localhost:3306/gestion_contrasenias";    //Falla
             String password = "riverplate20010304";
@@ -60,12 +62,12 @@ public class Main {
     private static int hex(String color_hex) { return Integer.parseInt(color_hex, 16); }
 
     //Variables
-    private static ImageIcon image = new ImageIcon(Main.class.getResource("/Images/cool-background.png"));
-    private static Color backgroundColorButton = new Color(hex("515151"));
-    private static Color foregroundColor = new Color(hex("ffffff"));
-    private static Border margin = new EmptyBorder(5, 15, 5, 15);
-    private static Color black = new Color(hex("000000"));
-    private static Color grey = new Color(hex("7B7B7B"));
+    private static final ImageIcon image = new ImageIcon(Main.class.getResource("/Images/cool-background.png"));
+    private static final Color backgroundColorButton = new Color(hex("515151"));
+    private static final Color foregroundColor = new Color(hex("ffffff"));
+    private static final Border margin = new EmptyBorder(5, 15, 5, 15);
+    private static final Color black = new Color(hex("000000"));
+    private static final Color grey = new Color(hex("7B7B7B"));
 }
 
 
