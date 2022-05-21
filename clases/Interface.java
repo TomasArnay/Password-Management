@@ -135,6 +135,7 @@ public class Interface implements ActionListener{
 
         frame.setBounds(width / 2 - 300, height / 2 - 150, x, y);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setResizable(false);
         frame.setVisible(true);
     }
 
@@ -171,8 +172,8 @@ public class Interface implements ActionListener{
         });
 
         //Refresh button
-        refresh.setIcon(imageRefreshPressed);
-        refresh.setPressedIcon(icon);
+        refresh.setIcon(iconImageRefresh);
+        refresh.setPressedIcon(iconImageRefreshPressed);
         refresh.setFocusable(false);
         refresh.setBorder(margin);
         refresh.addActionListener(new ActionListener() {
@@ -299,10 +300,12 @@ public class Interface implements ActionListener{
     private ImageIcon imageSettings = new ImageIcon(getClass().getResource("/Images/settings.png"));
     private ImageIcon imageSettingsPressed = new ImageIcon(getClass().getResource("/Images/settingsPressed.png"));
     private ImageIcon imageRefreshPressed = new ImageIcon(getClass().getResource("/Images/reload_pressed.png"));
+    Image scaleImageRefreshPressed = imageRefreshPressed.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT); //Convierto la imagen del boton de refrescar presionado a la escala del boton
+    ImageIcon iconImageRefreshPressed = new ImageIcon(scaleImageRefreshPressed);
 
     private ImageIcon imageRefresh = new ImageIcon(getClass().getResource("/Images/reload.png"));
-    Image scaleImage = imageRefresh.getImage().getScaledInstance(40, 40,Image.SCALE_DEFAULT);   //Convierto la imagen a la escala que tiene el boton
-    ImageIcon icon = new ImageIcon(scaleImage); //Convierto a Image a tipo ImageIcon para que lo tome el boton
+    Image scaleImageRefresh = imageRefresh.getImage().getScaledInstance(40, 40,Image.SCALE_DEFAULT);   //Convierto la imagen a la escala que tiene el boton
+    ImageIcon iconImageRefresh = new ImageIcon(scaleImageRefresh); //Convierto a Image a tipo ImageIcon para que lo tome el boton
 
     private boolean flagBackground;     //Si es verdadero es un fondo con estilo, si es falso es un fondo solido
     private boolean flagLanguage;   //Si es verdadero es ingles, si es falso es español

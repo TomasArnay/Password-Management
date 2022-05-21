@@ -97,6 +97,7 @@ public class PanelDelete implements ActionListener {
 
         frame.setBounds(width / 2 - 150, height / 2 - 150, 350, 250);
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        frame.setResizable(false);
         frame.setVisible(true);
     }
 

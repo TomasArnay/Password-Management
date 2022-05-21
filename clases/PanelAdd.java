@@ -116,6 +116,7 @@ public class PanelAdd implements ActionListener {
 
         frame.setBounds(width / 2 - 150, height / 2 - 150, 300, 250);
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        frame.setResizable(false);
         frame.setVisible(true);
     }
 
@@ -128,7 +129,7 @@ public class PanelAdd implements ActionListener {
         boxAccount.setBounds(80, 70, 140, 30);
         boxPassword.setBounds(80, 120, 140, 30);
 
-        accept.setBounds(75, 170, 100, 30);
+        accept.setBounds(90, 170, 100, 30);
         accept.setFocusable(false);
         accept.addActionListener(this);
         accept.setBackground(backgroundColorTF);

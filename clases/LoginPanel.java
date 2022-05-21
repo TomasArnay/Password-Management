@@ -70,6 +70,7 @@ public class LoginPanel implements ActionListener{
 
         frame.setBounds(width / 2 - 150, height / 2 - 150, 300, 250);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setResizable(false);
         frame.setVisible(true);
     }
 

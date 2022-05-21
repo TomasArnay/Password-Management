@@ -147,6 +147,7 @@ public class PanelUpdate implements ActionListener {
 
         frame.setBounds(width / 2 - 300, height / 2 - 150, 700, 300);
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        frame.setResizable(false);
         frame.setVisible(true);
     }
 

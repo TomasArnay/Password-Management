@@ -79,6 +79,7 @@ public class Settings implements ActionListener {
 
         frame.setBounds(width / 2 - 150, height / 2 - 150, 350, 300);
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        frame.setResizable(false);
         frame.setVisible(true);
     }
 
