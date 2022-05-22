@@ -299,10 +299,13 @@ public class Interface implements ActionListener{
     private String titleColumnPassword;     //Nombre de la columna de la tabla
     private ImageIcon imageSettings = new ImageIcon(getClass().getResource("/Images/settings.png"));
     private ImageIcon imageSettingsPressed = new ImageIcon(getClass().getResource("/Images/settingsPressed.png"));
+
+    //Estas tres lineas cambian las dimensiones de la imagen reload_pressed
     private ImageIcon imageRefreshPressed = new ImageIcon(getClass().getResource("/Images/reload_pressed.png"));
     Image scaleImageRefreshPressed = imageRefreshPressed.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT); //Convierto la imagen del boton de refrescar presionado a la escala del boton
     ImageIcon iconImageRefreshPressed = new ImageIcon(scaleImageRefreshPressed);
 
+    //Estas tres lineas cambian las dimensiones de la imagen reload
     private ImageIcon imageRefresh = new ImageIcon(getClass().getResource("/Images/reload.png"));
     Image scaleImageRefresh = imageRefresh.getImage().getScaledInstance(40, 40,Image.SCALE_DEFAULT);   //Convierto la imagen a la escala que tiene el boton
     ImageIcon iconImageRefresh = new ImageIcon(scaleImageRefresh); //Convierto a Image a tipo ImageIcon para que lo tome el boton
