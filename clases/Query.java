@@ -71,7 +71,6 @@ public class Query {
                 "', cuenta = '" + data[1] +
                 "', contrasenia = '" + data[2] +
                 "' where idregistro = " + data[3] + ";";
-        System.out.println(query);
 
         try {
             st = c.getConnection().createStatement();

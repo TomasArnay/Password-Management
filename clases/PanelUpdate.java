@@ -10,6 +10,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -183,6 +185,22 @@ public class PanelUpdate implements ActionListener {
                 boxPassword.setText(generatedPassword);
             }
         });
+
+        //Enter action
+        boxPassword.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {}
+
+            @Override
+            public void keyPressed(KeyEvent e) {}
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER){
+                    acceptButtonAction();
+                }
+            }
+        });
     }
 
     //Add components to arraylist
@@ -239,8 +257,6 @@ public class PanelUpdate implements ActionListener {
                     boxName.setText(myTable.getValueAt(row, 1).toString());
                     boxAccount.setText(myTable.getValueAt(row, 2).toString());
                     boxPassword.setText(myTable.getValueAt(row, 3).toString());
-
-                    System.out.println(id);
                 }
             }
         });
@@ -249,22 +265,27 @@ public class PanelUpdate implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Update") || e.getActionCommand().equals("Actualizar")){
-            if(!boxName.getText().equals("") &&
-                    !boxAccount.getText().equals("") &&
-                    !boxPassword.getText().equals("")
-            ){
-                String[] data = {boxName.getText(),
-                        boxAccount.getText(),
-                        boxPassword.getText(),
-                        id};
-                Query sql = new Query();
-                int control = sql.updateRecord(data);
-                if (control != 0){
-                    JOptionPane.showMessageDialog(frame,
-                            "The record has been update successfully",
-                            "Confirmation", JOptionPane.INFORMATION_MESSAGE);
-                    frame.setVisible(false);
-                }
+            acceptButtonAction();
+        }
+    }
+
+    //Happens when you accept
+    public void acceptButtonAction(){
+        if(!boxName.getText().equals("") &&
+                !boxAccount.getText().equals("") &&
+                !boxPassword.getText().equals("")
+        ){
+            String[] data = {boxName.getText(),
+                    boxAccount.getText(),
+                    boxPassword.getText(),
+                    id};
+            Query sql = new Query();
+            int control = sql.updateRecord(data);
+            if (control != 0){
+                JOptionPane.showMessageDialog(frame,
+                        "The record has been update successfully",
+                        "Confirmation", JOptionPane.INFORMATION_MESSAGE);
+                frame.setVisible(false);
             }
         }
     }

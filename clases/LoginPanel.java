@@ -51,13 +51,13 @@ public class LoginPanel implements ActionListener{
         loginPassword.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {}
+
             @Override
             public void keyPressed(KeyEvent e) {}
 
             @Override
             public void keyReleased(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER){
-                    System.out.println("X");
                     acceptButtonAction();
                 }
             }
@@ -113,6 +113,7 @@ public class LoginPanel implements ActionListener{
         }
     }
 
+    //Happens when you accept
     public void acceptButtonAction(){
         String loginPass = "Alfredo1959";
         frame.setVisible(false);

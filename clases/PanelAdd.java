@@ -7,6 +7,8 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 public class PanelAdd implements ActionListener {
@@ -153,6 +155,22 @@ public class PanelAdd implements ActionListener {
             }
         });
 
+        //Enter action
+        boxPassword.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {}
+
+            @Override
+            public void keyPressed(KeyEvent e) {}
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER){
+                    acceptButtonAction();
+                }
+            }
+        });
+
         addComponents();
     }
 
@@ -179,41 +197,45 @@ public class PanelAdd implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Accept") || e.getActionCommand().equals("Aceptar")){
-            if(!boxName.getText().equals("") &&
-                    !boxAccount.getText().equals("") &&
-                    !boxPassword.getText().equals("")
-            ){
-                Record record = new Record();
-                record.setName(boxName.getText());
-                record.setAccount(boxAccount.getText());
-                record.setPassword(boxPassword.getText());
+            acceptButtonAction();
+        }
+    }
 
-                if (verifyData(record.getName()) && verifyData(record.getAccount()) && verifyData(record.getPassword())){
-                    Query q = new Query();
-                    int control = q.queryAdd(record.getName(), record.getAccount(), record.getPassword());
+    public void acceptButtonAction(){
+        if(!boxName.getText().equals("") &&
+                !boxAccount.getText().equals("") &&
+                !boxPassword.getText().equals("")
+        ){
+            Record record = new Record();
+            record.setName(boxName.getText());
+            record.setAccount(boxAccount.getText());
+            record.setPassword(boxPassword.getText());
 
-                    if(control == 2){
-                        JOptionPane.showMessageDialog(null,
-                                "There was a problem connecting to the database");
-                    }else if(control == 0){
-                        JOptionPane.showMessageDialog(null,
-                                "The record already exists");
-                    }else{
-                        JOptionPane.showMessageDialog(frame,
-                                "The record has been created successfully",
-                                "Confirmation", JOptionPane.INFORMATION_MESSAGE);
-                        frame.setVisible(false);
-                    }
+            if (verifyData(record.getName()) && verifyData(record.getAccount()) && verifyData(record.getPassword())){
+                Query q = new Query();
+                int control = q.queryAdd(record.getName(), record.getAccount(), record.getPassword());
+
+                if(control == 2){
+                    JOptionPane.showMessageDialog(null,
+                            "There was a problem connecting to the database");
+                }else if(control == 0){
+                    JOptionPane.showMessageDialog(null,
+                            "The record already exists");
                 }else{
                     JOptionPane.showMessageDialog(frame,
-                            "The fields can not contain a space",
-                            "Error", JOptionPane.ERROR_MESSAGE);
+                            "The record has been created successfully",
+                            "Confirmation", JOptionPane.INFORMATION_MESSAGE);
+                    frame.setVisible(false);
                 }
             }else{
                 JOptionPane.showMessageDialog(frame,
-                        "All fields must be complete",
+                        "The fields can not contain a space",
                         "Error", JOptionPane.ERROR_MESSAGE);
             }
+        }else{
+            JOptionPane.showMessageDialog(frame,
+                    "All fields must be complete",
+                    "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 

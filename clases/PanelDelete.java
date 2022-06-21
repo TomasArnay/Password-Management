@@ -7,6 +7,8 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.sql.SQLException;
 
 public class PanelDelete implements ActionListener {
@@ -110,6 +112,20 @@ public class PanelDelete implements ActionListener {
         nameEntered.setFont(new Font("Segoe UI", Font.BOLD, 14));
         nameEntered.setForeground(foregroundButton);
         nameEntered.setBackground(backgroundButton);
+        nameEntered.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {}
+
+            @Override
+            public void keyPressed(KeyEvent e) {}
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER){
+                    acceptButtonAction();
+                }
+            }
+        });
 
         deleteRecord.setBounds(110, 150, 100, 30);
         deleteRecord.setFont(new Font("Segoe UI", Font.BOLD, 14));
@@ -124,33 +140,38 @@ public class PanelDelete implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("Delete") || e.getActionCommand().equals("Eliminar")){
-            name = nameEntered.getText();
-            if (!nameEntered.getText().equals("")){           //Si el campo no esta vacío
-                if (verifyName(name)){          //Si el nombre ingresado es correcto
-                    int flag = deleteRecord(name);
-                    if(flag == 0){            //Si el registro se borró con éxito
-                        JOptionPane.showMessageDialog(frame,
-                                "The record has been successfully deleted",
-                                "Confirmation", JOptionPane.INFORMATION_MESSAGE);
-                        frame.setVisible(false);
-                    }else if(flag == 1){
-                        JOptionPane.showMessageDialog(frame,
-                                "The record that you have requested to delete does not exist",
-                                "Error", JOptionPane.ERROR_MESSAGE);
-                    }else{
-                        JOptionPane.showMessageDialog(frame,
-                                "An error occurred with the connection to the database",
-                                "Error", JOptionPane.ERROR_MESSAGE);
-                    }
-                }else {
+            acceptButtonAction();
+        }
+    }
+
+    //Happens when you accept
+    public void acceptButtonAction(){
+        name = nameEntered.getText();
+        if (!nameEntered.getText().equals("")){           //Si el campo no esta vacío
+            if (verifyName(name)){          //Si el nombre ingresado es correcto
+                int flag = deleteRecord(name);
+                if(flag == 0){            //Si el registro se borró con éxito
                     JOptionPane.showMessageDialog(frame,
-                            "The field can not contain a space",
+                            "The record has been successfully deleted",
+                            "Confirmation", JOptionPane.INFORMATION_MESSAGE);
+                    frame.setVisible(false);
+                }else if(flag == 1){
+                    JOptionPane.showMessageDialog(frame,
+                            "The record that you have requested to delete does not exist",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }else{
+                    JOptionPane.showMessageDialog(frame,
+                            "An error occurred with the connection to the database",
                             "Error", JOptionPane.ERROR_MESSAGE);
                 }
-            }else{
+            }else {
                 JOptionPane.showMessageDialog(frame,
-                        "The field is empty", "Error", JOptionPane.ERROR_MESSAGE);
+                        "The field can not contain a space",
+                        "Error", JOptionPane.ERROR_MESSAGE);
             }
+        }else{
+            JOptionPane.showMessageDialog(frame,
+                    "The field is empty", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
