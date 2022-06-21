@@ -7,6 +7,8 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.sql.SQLException;
 
 public class LoginPanel implements ActionListener{
@@ -45,6 +47,21 @@ public class LoginPanel implements ActionListener{
         loginPassword.setBackground(backgroundTF);
         loginPassword.setForeground(foregroundColor);
         loginPassword.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        //Keyboard actions
+        loginPassword.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {}
+            @Override
+            public void keyPressed(KeyEvent e) {}
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER){
+                    System.out.println("X");
+                    acceptButtonAction();
+                }
+            }
+        });
 
         accept.setFocusable(false);
         accept.addActionListener(this);
@@ -92,27 +109,30 @@ public class LoginPanel implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("Accept")){
-            String loginPass = "Alfredo1959";
-            frame.setVisible(false);
-            Main start = new Main();
-            if (comparationPassword(loginPassword.getText(), loginPass) == 0) {
-                JOptionPane.showMessageDialog(frame,
-                        "Incorrect password",
-                        "Error", JOptionPane.ERROR_MESSAGE);
+            acceptButtonAction();
+        }
+    }
 
-            }
+    public void acceptButtonAction(){
+        String loginPass = "Alfredo1959";
+        frame.setVisible(false);
+        Main start = new Main();
+        if (comparationPassword(loginPassword.getText(), loginPass) == 0) {
+            JOptionPane.showMessageDialog(frame,
+                    "Incorrect password",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
 
-            try {
-                start.connection(comparationPassword(loginPassword.getText(), loginPass));
-            }catch (SQLException exception){
-                //error = exception.getMessage();
-                JOptionPane.showMessageDialog(frame,
-                        "Database connection error",
-                        "Error", JOptionPane.ERROR_MESSAGE);
-                exception.printStackTrace();
-                System.out.println("Conexión fallida");
-                System.exit(0);
-            }
+        try {
+            start.connection(comparationPassword(loginPassword.getText(), loginPass));
+        }catch (SQLException exception){
+            //error = exception.getMessage();
+            JOptionPane.showMessageDialog(frame,
+                    "Database connection error",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            exception.printStackTrace();
+            System.out.println("Conexión fallida");
+            System.exit(0);
         }
     }
 
